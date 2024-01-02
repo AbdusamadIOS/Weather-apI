@@ -6,3 +6,7 @@
 //
 
 import Foundation
+
+struct City {
+    var name: String
+}
