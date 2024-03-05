@@ -38,7 +38,4 @@ class HaroratCell: UICollectionViewCell {
         
         saotlikKunImage.setImage(by: URL(string: "https:" + hour.condition.icon))
     }
-    
-
-
 }

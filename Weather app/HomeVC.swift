@@ -9,6 +9,7 @@ import UIKit
 
 class HomeVC: UIViewController {
     
+    @IBOutlet weak var conteneirView: UIView!
     @IBOutlet weak var weatherImage: UIImageView!
     @IBOutlet weak var tembLbl: UILabel!
     @IBOutlet weak var describtionLbl: UILabel!
@@ -30,23 +31,32 @@ class HomeVC: UIViewController {
         setupDayCollectionView()
         setupNextDayCollectionView()
         setupNav()
-        
+
     }
     
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        let colors = CAGradientLayer()
+        colors.frame = view.bounds
+        colors.colors = [UIColor.white.cgColor, UIColor.systemBlue.cgColor]
+        
+        view.layer.insertSublayer(colors, at: 0)
+    }
+
     func setupNav() {
         
         let location = UIBarButtonItem(image: UIImage(systemName: "mappin.and.ellipse"), style: .done, target: self, action: #selector(location))
 
         navigationItem.leftBarButtonItem = location
-        location.tintColor = UIColor.white
+        location.tintColor = UIColor.black
         navigationItem.hidesBackButton = true
         
         let search = UIBarButtonItem(image: UIImage(systemName: "magnifyingglass"), style: .done, target: self, action: #selector(searchBtn))
         let menu = UIBarButtonItem(image: UIImage(systemName: "filemenu.and.selection"), style: .done, target: self, action: #selector(menuBtn))
         
         
-        search.tintColor = .white
-        menu.tintColor = .white
+        search.tintColor = .black
+        menu.tintColor = .black
         
         navigationItem.rightBarButtonItems = [ menu, search]
     }
@@ -69,28 +79,20 @@ class HomeVC: UIViewController {
 
         let alert = UIAlertController(title: "Viloyatlardan birini tanlang", message: "", preferredStyle: .alert)
 
-          
           let pickerView = UIPickerView()
           pickerView.dataSource = self
           pickerView.delegate = self
-
-         
           alert.addTextField { textField in
               textField.inputView = pickerView
               textField.placeholder = "Viloyat nomi"
           }
       
-          
           let action = UIAlertAction(title: "OK", style: .default) { action in
-              
-              if let textField = alert.textFields?.first, let text = textField.text {
-                  
+             if let textField = alert.textFields?.first, let text = textField.text {
                   print("Selected Item: \(text)")
               }
           }
-
           alert.addAction(action)
-
           present(alert, animated: true, completion: nil)
       }
  
@@ -118,7 +120,6 @@ class HomeVC: UIViewController {
     }
     
     func getCurrentweather(for city: String) {
-        
         let urlString = "https://api.weatherapi.com/v1/forecast.json?key=11ffd290d26f4ebcb4854359230610&q=\(city)&days=1&aqi=no&alerts=no"
         
         guard let url = URL(string: urlString) else  {return }
@@ -138,9 +139,7 @@ class HomeVC: UIViewController {
             }
             do {
                 let decoder = JSONDecoder()
-               
                 let weather = try decoder.decode(CurrentResponse.self, from: data)
-              
                 DispatchQueue.main.async {
                     self.UpdateUI(weather: weather)
             
@@ -154,19 +153,14 @@ class HomeVC: UIViewController {
             }
         }
         task.resume()
-        
     }
     
     func getForecast(for city: String, days: Int) {
         
         let urlString = "https://api.weatherapi.com/v1/forecast.json?key=11ffd290d26f4ebcb4854359230610&q=\(city)&days=\(days)"
-        
-        guard let url = URL(string: urlString) else {return }
-        
+            guard let url = URL(string: urlString) else {return }
         let request = URLRequest(url: url)
-        
         let data: Void = URLSession.shared.dataTask(with: request) { data, response, error in
-            
             guard let data, error == nil else{
                 DispatchQueue.main.async {
                     self.showAlert(with: error?.localizedDescription)
@@ -188,13 +182,11 @@ class HomeVC: UIViewController {
                 if let error = dataDictionary["error"] as? [String: Any] {
                     DispatchQueue.main.async {
                         self.showAlert(with: error["message"] as? String)
-                        
                     }
                 }
             default:
                 break
             }
-            
             let decoder = JSONDecoder()
             
             do {
@@ -214,33 +206,22 @@ class HomeVC: UIViewController {
                             self.dayCollectionView.scrollToItem(at: IndexPath(item: i, section: 0), at: .centeredHorizontally, animated: true)
                         }
                     }
-                    
-                    
                     self.nextDayCollectionView.reloadData()
                 }
-                
             } catch  {
-                
                 DispatchQueue.main.async {
                     self.showAlert(with: error.localizedDescription)
                     print(error)
                 }
             }
-            
-             
             print(data)
         }.resume()
-        
     }
-    
     func showAlert(with title: String?) {
         
         let alert = UIAlertController(title: title, message: nil, preferredStyle: .alert)
-        
         let ok = UIAlertAction(title: "OK", style: .default)
-        
         alert.addAction(ok)
-        
         self.present(alert, animated: true)
         
     }
@@ -251,9 +232,7 @@ class HomeVC: UIViewController {
         describtionLbl.text = weather.current.condition.text
      
         if let today = days.first {
-            
             windLbl.text = "Min: \(today.day.mintemp_c)℃ / Max: \(today.day.maxtemp_c)℃"
-            
         }
         
         weatherImage.setImage(by: URL(string: "https:" + weather.current.condition.icon))
@@ -275,16 +254,12 @@ extension HomeVC: UICollectionViewDelegate, UICollectionViewDataSource, UICollec
         
         if collectionView == dayCollectionView {
             
-            
             let cell = dayCollectionView.dequeueReusableCell(withReuseIdentifier: "HaroratCell", for: indexPath) as! HaroratCell
-            
             cell.updateCell(hour: hours[indexPath.row])
-            
             return cell
         } else {
             
             let cell = nextDayCollectionView.dequeueReusableCell(withReuseIdentifier: "KunCell", for: indexPath) as! KunCell
-
             cell.updateCell(day: days[indexPath.row])
             return cell
         }
@@ -296,19 +271,14 @@ extension HomeVC: UICollectionViewDelegate, UICollectionViewDataSource, UICollec
             
             let width: CGFloat = 66
             let height: CGFloat = 132
-            
             return CGSize(width: width, height: height)
             
         } else {
-            
             let width: CGFloat = collectionView.frame.width
             let height: CGFloat = 57
-            
             return CGSize(width: width, height: height)
             
         }
-    
-        
     }
     
 }
