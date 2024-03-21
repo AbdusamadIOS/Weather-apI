@@ -9,8 +9,6 @@
 /* Begin PBXBuildFile section */
 		EEB93D662AD71E09000F3F52 /* KunCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEB93D642AD71E09000F3F52 /* KunCell.swift */; };
 		EEB93D672AD71E09000F3F52 /* KunCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = EEB93D652AD71E09000F3F52 /* KunCell.xib */; };
-		EECFD6862AE2C30D002D3587 /* SearchCity.swift in Sources */ = {isa = PBXBuildFile; fileRef = EECFD6842AE2C30D002D3587 /* SearchCity.swift */; };
-		EECFD6872AE2C30D002D3587 /* SearchCity.xib in Resources */ = {isa = PBXBuildFile; fileRef = EECFD6852AE2C30D002D3587 /* SearchCity.xib */; };
 		EED7A8C52AE1979E0029DCB8 /* Extension+UIimage.swift in Sources */ = {isa = PBXBuildFile; fileRef = EED7A8C42AE1979E0029DCB8 /* Extension+UIimage.swift */; };
 		EEED3B952ACFCCC400FCC16B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEED3B942ACFCCC400FCC16B /* AppDelegate.swift */; };
 		EEED3B9F2ACFCCC400FCC16B /* Weather_app.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = EEED3B9D2ACFCCC400FCC16B /* Weather_app.xcdatamodeld */; };
@@ -21,14 +19,11 @@
 		EEED3BB02ACFD18800FCC16B /* WeatherModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEED3BAF2ACFD18800FCC16B /* WeatherModel.swift */; };
 		EEED3BB32AD0442B00FCC16B /* HaroratCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEED3BB12AD0442B00FCC16B /* HaroratCell.swift */; };
 		EEED3BB42AD0442B00FCC16B /* HaroratCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = EEED3BB22AD0442B00FCC16B /* HaroratCell.xib */; };
-		EEED3BBE2AD17D6600FCC16B /* CityModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEED3BBD2AD17D6600FCC16B /* CityModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		EEB93D642AD71E09000F3F52 /* KunCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KunCell.swift; sourceTree = "<group>"; };
 		EEB93D652AD71E09000F3F52 /* KunCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = KunCell.xib; sourceTree = "<group>"; };
-		EECFD6842AE2C30D002D3587 /* SearchCity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchCity.swift; sourceTree = "<group>"; };
-		EECFD6852AE2C30D002D3587 /* SearchCity.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SearchCity.xib; sourceTree = "<group>"; };
 		EED7A8C42AE1979E0029DCB8 /* Extension+UIimage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension+UIimage.swift"; sourceTree = "<group>"; };
 		EEED3B912ACFCCC400FCC16B /* Weather app.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Weather app.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		EEED3B942ACFCCC400FCC16B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -41,7 +36,6 @@
 		EEED3BAF2ACFD18800FCC16B /* WeatherModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherModel.swift; sourceTree = "<group>"; };
 		EEED3BB12AD0442B00FCC16B /* HaroratCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HaroratCell.swift; sourceTree = "<group>"; };
 		EEED3BB22AD0442B00FCC16B /* HaroratCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HaroratCell.xib; sourceTree = "<group>"; };
-		EEED3BBD2AD17D6600FCC16B /* CityModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CityModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -77,15 +71,12 @@
 				EEED3B942ACFCCC400FCC16B /* AppDelegate.swift */,
 				EEED3BAB2ACFCD0500FCC16B /* HomeVC.swift */,
 				EEED3BAC2ACFCD0500FCC16B /* HomeVC.xib */,
-				EECFD6842AE2C30D002D3587 /* SearchCity.swift */,
-				EECFD6852AE2C30D002D3587 /* SearchCity.xib */,
 				EEED3BB12AD0442B00FCC16B /* HaroratCell.swift */,
 				EEED3BB22AD0442B00FCC16B /* HaroratCell.xib */,
 				EEB93D642AD71E09000F3F52 /* KunCell.swift */,
 				EEB93D652AD71E09000F3F52 /* KunCell.xib */,
 				EEED3BAF2ACFD18800FCC16B /* WeatherModel.swift */,
 				EED7A8C42AE1979E0029DCB8 /* Extension+UIimage.swift */,
-				EEED3BBD2AD17D6600FCC16B /* CityModel.swift */,
 				EEED3BA02ACFCCC500FCC16B /* Assets.xcassets */,
 				EEED3BA22ACFCCC500FCC16B /* LaunchScreen.storyboard */,
 				EEED3BA52ACFCCC500FCC16B /* Info.plist */,
@@ -156,7 +147,6 @@
 				EEB93D672AD71E09000F3F52 /* KunCell.xib in Resources */,
 				EEED3BB42AD0442B00FCC16B /* HaroratCell.xib in Resources */,
 				EEED3BAE2ACFCD0500FCC16B /* HomeVC.xib in Resources */,
-				EECFD6872AE2C30D002D3587 /* SearchCity.xib in Resources */,
 				EEED3BA12ACFCCC500FCC16B /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -170,10 +160,8 @@
 			files = (
 				EEED3BAD2ACFCD0500FCC16B /* HomeVC.swift in Sources */,
 				EEED3B9F2ACFCCC400FCC16B /* Weather_app.xcdatamodeld in Sources */,
-				EECFD6862AE2C30D002D3587 /* SearchCity.swift in Sources */,
 				EEED3BB02ACFD18800FCC16B /* WeatherModel.swift in Sources */,
 				EED7A8C52AE1979E0029DCB8 /* Extension+UIimage.swift in Sources */,
-				EEED3BBE2AD17D6600FCC16B /* CityModel.swift in Sources */,
 				EEB93D662AD71E09000F3F52 /* KunCell.swift in Sources */,
 				EEED3B952ACFCCC400FCC16B /* AppDelegate.swift in Sources */,
 				EEED3BB32AD0442B00FCC16B /* HaroratCell.swift in Sources */,

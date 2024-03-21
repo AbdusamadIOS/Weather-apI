@@ -6,9 +6,12 @@
 //
 
 import UIKit
+import CoreLocation
 
 class HomeVC: UIViewController {
     
+//    let locationManager = CLLocationManager()
+//    var weatherService: WeatherServiceProtocol = WeatherService()
     @IBOutlet weak var conteneirView: UIView!
     @IBOutlet weak var weatherImage: UIImageView!
     @IBOutlet weak var tembLbl: UILabel!
@@ -17,8 +20,6 @@ class HomeVC: UIViewController {
     @IBOutlet weak var dayCollectionView: UICollectionView!
     @IBOutlet weak var nextDayCollectionView: UICollectionView!
     
-    let editCity = ["Andijon", "Buxoro", "Farg'ona", "Jizzax",  "Namangan", "Nukus", "Samarqand", "Sirdaryo", "Surxondaryo", "Toshkent", "Urganch", "Xorazm"]
-    let pickerView = UIPickerView()
     var city = "Andijon"
     var hours: [Hour] = []
     var days: [ForecastDay] = []
@@ -45,57 +46,19 @@ class HomeVC: UIViewController {
 
     func setupNav() {
         
-        let location = UIBarButtonItem(image: UIImage(systemName: "mappin.and.ellipse"), style: .done, target: self, action: #selector(location))
+        let location = UIBarButtonItem(image: UIImage(systemName: "location.circle"), style: .done, target: self, action: #selector(location))
 
         navigationItem.leftBarButtonItem = location
         location.tintColor = UIColor.black
         navigationItem.hidesBackButton = true
         
-        let search = UIBarButtonItem(image: UIImage(systemName: "magnifyingglass"), style: .done, target: self, action: #selector(searchBtn))
-        let menu = UIBarButtonItem(image: UIImage(systemName: "filemenu.and.selection"), style: .done, target: self, action: #selector(menuBtn))
-        
-        
-        search.tintColor = .black
-        menu.tintColor = .black
-        
-        navigationItem.rightBarButtonItems = [ menu, search]
     }
    
     
     @objc func location() {
-  
-    }
-    @objc func searchBtn() {
-       
-     let search = SearchCity(nibName: "SearchCity", bundle: nil)
-        
-        self.navigationController?.pushViewController(search, animated: true)
-    }
-    @objc func menuBtn() {
-        addCity()
+//        locationManager.requestLocation()
     }
     
-    func addCity() {
-
-        let alert = UIAlertController(title: "Viloyatlardan birini tanlang", message: "", preferredStyle: .alert)
-
-          let pickerView = UIPickerView()
-          pickerView.dataSource = self
-          pickerView.delegate = self
-          alert.addTextField { textField in
-              textField.inputView = pickerView
-              textField.placeholder = "Viloyat nomi"
-          }
-      
-          let action = UIAlertAction(title: "OK", style: .default) { action in
-             if let textField = alert.textFields?.first, let text = textField.text {
-                  print("Selected Item: \(text)")
-              }
-          }
-          alert.addAction(action)
-          present(alert, animated: true, completion: nil)
-      }
- 
     func setupDayCollectionView() {
         
         dayCollectionView.dataSource = self
@@ -283,22 +246,23 @@ extension HomeVC: UICollectionViewDelegate, UICollectionViewDataSource, UICollec
     
 }
 
-extension HomeVC : UIPickerViewDelegate, UIPickerViewDataSource {
-   
-    func numberOfComponents(in pickerView: UIPickerView) -> Int {
-        return 1
-    }
-    
-    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
-       
-        return editCity.count
-       
-    }
-    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-        
-        return editCity[row]
- 
-    }
-  
-}
 
+//extension HomeVC: CLLocationManagerDelegate {
+//    
+//    @objc func location() {
+//        locationManager.requestLocation()
+//    }
+//    
+//    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+//        if let location = locations.last {
+//            locationManager.stopUpdatingLocation()
+//            let lat = location.coordinate.latitude
+//            let long = location.coordinate.longitude
+//            weatherService.fetchWeather(latitude: lat, longitude: long)
+//        }
+//    }
+//    
+//    func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
+//        print(error)
+//    }
+//}
