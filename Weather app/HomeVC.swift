@@ -40,27 +40,22 @@ class HomeVC: UIViewController {
         let colors = CAGradientLayer()
         colors.frame = view.bounds
         colors.colors = [UIColor.white.cgColor, UIColor.systemBlue.cgColor]
-        
         view.layer.insertSublayer(colors, at: 0)
     }
 
     func setupNav() {
-        
         let location = UIBarButtonItem(image: UIImage(systemName: "location.circle"), style: .done, target: self, action: #selector(location))
 
         navigationItem.leftBarButtonItem = location
         location.tintColor = UIColor.black
         navigationItem.hidesBackButton = true
-        
     }
-   
     
     @objc func location() {
 //        locationManager.requestLocation()
     }
     
     func setupDayCollectionView() {
-        
         dayCollectionView.dataSource = self
         dayCollectionView.delegate = self
         dayCollectionView.backgroundColor = UIColor(named: "col")
@@ -68,11 +63,9 @@ class HomeVC: UIViewController {
         dayCollectionView.layer.borderColor = UIColor.white.cgColor
         dayCollectionView.layer.borderWidth = 0.7
         dayCollectionView.register(UINib(nibName: "HaroratCell", bundle: nil), forCellWithReuseIdentifier: "HaroratCell")
-        
     }
     
     func setupNextDayCollectionView() {
-        
         nextDayCollectionView.delegate = self
         nextDayCollectionView.dataSource = self
         nextDayCollectionView.backgroundColor = UIColor(named: "col")
@@ -86,15 +79,10 @@ class HomeVC: UIViewController {
         let urlString = "https://api.weatherapi.com/v1/forecast.json?key=11ffd290d26f4ebcb4854359230610&q=\(city)&days=1&aqi=no&alerts=no"
         
         guard let url = URL(string: urlString) else  {return }
-        
         let request = URLRequest(url: url)
-        
         let session = URLSession(configuration: .default)
-        
         let task = session.dataTask(with: request) {data, response, error in
-            
             guard let data, error == nil else {
-                
                 DispatchQueue.main.async {
                     self.showAlert(with: error?.localizedDescription)
                 }
@@ -105,9 +93,7 @@ class HomeVC: UIViewController {
                 let weather = try decoder.decode(CurrentResponse.self, from: data)
                 DispatchQueue.main.async {
                     self.UpdateUI(weather: weather)
-            
                 }
-                
             } catch  {
                 DispatchQueue.main.async {
                     self.showAlert(with: error.localizedDescription)
@@ -128,13 +114,10 @@ class HomeVC: UIViewController {
                 DispatchQueue.main.async {
                     self.showAlert(with: error?.localizedDescription)
                     print(error!)
-                    
                 }
                 return
             }
-            
             guard let response = response as? HTTPURLResponse else { return }
-      
             switch response.statusCode {
             case 200:
                 print("Success: Response Status Code:", response.statusCode)
@@ -159,7 +142,6 @@ class HomeVC: UIViewController {
                 
                 DispatchQueue.main.async {
                     self.dayCollectionView.reloadData()
-                    
                     let dateFormatter = DateFormatter()
                     dateFormatter.dateFormat = "HH:00"
                     let hour = dateFormatter.string(from: Date())
