@@ -19,8 +19,6 @@
 		EEED3BB02ACFD18800FCC16B /* WeatherModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEED3BAF2ACFD18800FCC16B /* WeatherModel.swift */; };
 		EEED3BB32AD0442B00FCC16B /* HaroratCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEED3BB12AD0442B00FCC16B /* HaroratCell.swift */; };
 		EEED3BB42AD0442B00FCC16B /* HaroratCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = EEED3BB22AD0442B00FCC16B /* HaroratCell.xib */; };
-		EEF8C4002BAC1EED000BC1D3 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEF8C3FF2BAC1EED000BC1D3 /* NetworkManager.swift */; };
-		EEF8C4022BAC1F7F000BC1D3 /* BackError.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEF8C4012BAC1F7F000BC1D3 /* BackError.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -38,8 +36,6 @@
 		EEED3BAF2ACFD18800FCC16B /* WeatherModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherModel.swift; sourceTree = "<group>"; };
 		EEED3BB12AD0442B00FCC16B /* HaroratCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HaroratCell.swift; sourceTree = "<group>"; };
 		EEED3BB22AD0442B00FCC16B /* HaroratCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HaroratCell.xib; sourceTree = "<group>"; };
-		EEF8C3FF2BAC1EED000BC1D3 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
-		EEF8C4012BAC1F7F000BC1D3 /* BackError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackError.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -81,8 +77,6 @@
 				EEB93D652AD71E09000F3F52 /* KunCell.xib */,
 				EEED3BAF2ACFD18800FCC16B /* WeatherModel.swift */,
 				EED7A8C42AE1979E0029DCB8 /* Extension+UIimage.swift */,
-				EEF8C3FF2BAC1EED000BC1D3 /* NetworkManager.swift */,
-				EEF8C4012BAC1F7F000BC1D3 /* BackError.swift */,
 				EEED3BA02ACFCCC500FCC16B /* Assets.xcassets */,
 				EEED3BA22ACFCCC500FCC16B /* LaunchScreen.storyboard */,
 				EEED3BA52ACFCCC500FCC16B /* Info.plist */,
@@ -164,12 +158,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				EEF8C4022BAC1F7F000BC1D3 /* BackError.swift in Sources */,
 				EEED3BAD2ACFCD0500FCC16B /* HomeVC.swift in Sources */,
 				EEED3B9F2ACFCCC400FCC16B /* Weather_app.xcdatamodeld in Sources */,
 				EEED3BB02ACFD18800FCC16B /* WeatherModel.swift in Sources */,
 				EED7A8C52AE1979E0029DCB8 /* Extension+UIimage.swift in Sources */,
-				EEF8C4002BAC1EED000BC1D3 /* NetworkManager.swift in Sources */,
 				EEB93D662AD71E09000F3F52 /* KunCell.swift in Sources */,
 				EEED3B952ACFCCC400FCC16B /* AppDelegate.swift in Sources */,
 				EEED3BB32AD0442B00FCC16B /* HaroratCell.swift in Sources */,
