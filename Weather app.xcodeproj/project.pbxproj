@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		EE278A042BEBB143006AD2C0 /* WeatherManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE278A032BEBB143006AD2C0 /* WeatherManager.swift */; };
 		EEB93D662AD71E09000F3F52 /* KunCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEB93D642AD71E09000F3F52 /* KunCell.swift */; };
 		EEB93D672AD71E09000F3F52 /* KunCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = EEB93D652AD71E09000F3F52 /* KunCell.xib */; };
 		EED7A8C52AE1979E0029DCB8 /* Extension+UIimage.swift in Sources */ = {isa = PBXBuildFile; fileRef = EED7A8C42AE1979E0029DCB8 /* Extension+UIimage.swift */; };
@@ -22,6 +23,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		EE278A032BEBB143006AD2C0 /* WeatherManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherManager.swift; sourceTree = "<group>"; };
 		EEB93D642AD71E09000F3F52 /* KunCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KunCell.swift; sourceTree = "<group>"; };
 		EEB93D652AD71E09000F3F52 /* KunCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = KunCell.xib; sourceTree = "<group>"; };
 		EED7A8C42AE1979E0029DCB8 /* Extension+UIimage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension+UIimage.swift"; sourceTree = "<group>"; };
@@ -75,6 +77,7 @@
 				EEED3BB22AD0442B00FCC16B /* HaroratCell.xib */,
 				EEB93D642AD71E09000F3F52 /* KunCell.swift */,
 				EEB93D652AD71E09000F3F52 /* KunCell.xib */,
+				EE278A032BEBB143006AD2C0 /* WeatherManager.swift */,
 				EEED3BAF2ACFD18800FCC16B /* WeatherModel.swift */,
 				EED7A8C42AE1979E0029DCB8 /* Extension+UIimage.swift */,
 				EEED3BA02ACFCCC500FCC16B /* Assets.xcassets */,
@@ -160,6 +163,7 @@
 			files = (
 				EEED3BAD2ACFCD0500FCC16B /* HomeVC.swift in Sources */,
 				EEED3B9F2ACFCCC400FCC16B /* Weather_app.xcdatamodeld in Sources */,
+				EE278A042BEBB143006AD2C0 /* WeatherManager.swift in Sources */,
 				EEED3BB02ACFD18800FCC16B /* WeatherModel.swift in Sources */,
 				EED7A8C52AE1979E0029DCB8 /* Extension+UIimage.swift in Sources */,
 				EEB93D662AD71E09000F3F52 /* KunCell.swift in Sources */,

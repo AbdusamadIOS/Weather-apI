@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="22505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="32700.99.1234" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22504"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22684"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -14,6 +14,7 @@
                 <outlet property="describtionLbl" destination="qsr-ra-9ib" id="5h7-1I-XIf"/>
                 <outlet property="nextDayCollectionView" destination="1CI-3w-o8C" id="dea-S3-LT6"/>
                 <outlet property="tembLbl" destination="Bd7-ia-l4U" id="5DV-LI-Dlv"/>
+                <outlet property="textField" destination="Ogj-gJ-vhi" id="FYX-Cp-DfI"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
                 <outlet property="weatherImage" destination="Bel-Qh-63g" id="Hbm-rh-PUH"/>
                 <outlet property="windLbl" destination="dIf-fq-msi" id="stY-Zc-hoG"/>
@@ -28,7 +29,7 @@
                     <rect key="frame" x="0.0" y="59" width="393" height="875"/>
                     <subviews>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="j3d-xK-TfV">
-                            <rect key="frame" x="0.0" y="0.0" width="393" height="943"/>
+                            <rect key="frame" x="0.0" y="50" width="393" height="882"/>
                             <subviews>
                                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="kKT-JH-YYh">
                                     <rect key="frame" x="40" y="0.0" width="313" height="289"/>
@@ -149,20 +150,46 @@
                             <constraints>
                                 <constraint firstItem="LdS-SU-Sep" firstAttribute="leading" secondItem="j3d-xK-TfV" secondAttribute="leading" constant="40" id="6qU-m5-F7o"/>
                                 <constraint firstItem="kKT-JH-YYh" firstAttribute="centerX" secondItem="j3d-xK-TfV" secondAttribute="centerX" id="Yev-TN-hLw"/>
-                                <constraint firstAttribute="height" constant="943" id="aH2-UO-mNn"/>
+                                <constraint firstAttribute="height" constant="882" id="aH2-UO-mNn"/>
                                 <constraint firstItem="kKT-JH-YYh" firstAttribute="leading" secondItem="j3d-xK-TfV" secondAttribute="leading" constant="40" id="baP-uf-Mei"/>
                                 <constraint firstItem="kKT-JH-YYh" firstAttribute="top" secondItem="j3d-xK-TfV" secondAttribute="top" id="cxo-GP-Qvh"/>
                                 <constraint firstItem="LdS-SU-Sep" firstAttribute="top" secondItem="kKT-JH-YYh" secondAttribute="bottom" constant="20" id="pRR-x5-PSH"/>
                                 <constraint firstItem="kKT-JH-YYh" firstAttribute="centerX" secondItem="LdS-SU-Sep" secondAttribute="centerX" id="rvx-pQ-815"/>
                             </constraints>
                         </view>
+                        <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="chh-aJ-cLd">
+                            <rect key="frame" x="10" y="10" width="363" height="40"/>
+                            <subviews>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lBY-mX-nrQ">
+                                    <rect key="frame" x="0.0" y="0.0" width="49.666666666666664" height="40"/>
+                                    <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <state key="normal" title="Button"/>
+                                    <buttonConfiguration key="configuration" style="plain" image="location.circle" catalog="system"/>
+                                    <connections>
+                                        <action selector="locationButton:" destination="-1" eventType="touchUpInside" id="nbC-5m-OAm"/>
+                                    </connections>
+                                </button>
+                                <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="city name..." textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Ogj-gJ-vhi">
+                                    <rect key="frame" x="49.666666666666657" y="0.0" width="313.33333333333337" height="40"/>
+                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                    <textInputTraits key="textInputTraits"/>
+                                </textField>
+                            </subviews>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="40" id="Ysi-oJ-Kid"/>
+                            </constraints>
+                        </stackView>
                     </subviews>
                     <constraints>
-                        <constraint firstAttribute="bottom" secondItem="j3d-xK-TfV" secondAttribute="bottom" id="0bj-qS-yvA"/>
+                        <constraint firstAttribute="bottom" secondItem="j3d-xK-TfV" secondAttribute="bottom" constant="-68" id="0bj-qS-yvA"/>
                         <constraint firstItem="j3d-xK-TfV" firstAttribute="leading" secondItem="aW0-rc-qTk" secondAttribute="leading" id="6jc-SV-dns"/>
                         <constraint firstAttribute="trailing" secondItem="j3d-xK-TfV" secondAttribute="trailing" id="Mjx-6g-Rfv"/>
+                        <constraint firstItem="chh-aJ-cLd" firstAttribute="top" secondItem="aW0-rc-qTk" secondAttribute="top" constant="10" id="WHZ-Rc-6wx"/>
+                        <constraint firstItem="chh-aJ-cLd" firstAttribute="top" secondItem="aW0-rc-qTk" secondAttribute="top" constant="10" id="eiO-ya-h0Z"/>
+                        <constraint firstAttribute="trailing" secondItem="chh-aJ-cLd" secondAttribute="trailing" constant="20" id="hBa-t3-Cdg"/>
+                        <constraint firstItem="chh-aJ-cLd" firstAttribute="leading" secondItem="aW0-rc-qTk" secondAttribute="leading" constant="10" id="lRc-sN-eby"/>
                         <constraint firstItem="j3d-xK-TfV" firstAttribute="centerX" secondItem="aW0-rc-qTk" secondAttribute="centerX" id="ssw-b8-91G"/>
-                        <constraint firstItem="j3d-xK-TfV" firstAttribute="top" secondItem="aW0-rc-qTk" secondAttribute="top" id="vca-BU-Ey1"/>
+                        <constraint firstItem="j3d-xK-TfV" firstAttribute="top" secondItem="aW0-rc-qTk" secondAttribute="top" constant="50" id="vca-BU-Ey1"/>
                     </constraints>
                 </scrollView>
             </subviews>
@@ -179,5 +206,6 @@
     </objects>
     <resources>
         <image name="Image 1" width="344" height="247"/>
+        <image name="location.circle" catalog="system" width="128" height="123"/>
     </resources>
 </document>

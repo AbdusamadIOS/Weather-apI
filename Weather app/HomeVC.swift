@@ -8,10 +8,9 @@
 import UIKit
 import CoreLocation
 
-class HomeVC: UIViewController {
-    
-//    let locationManager = CLLocationManager()
-//    var weatherService: WeatherServiceProtocol = WeatherService()
+class HomeVC: UIViewController{
+        
+    @IBOutlet weak var textField: UITextField!
     @IBOutlet weak var conteneirView: UIView!
     @IBOutlet weak var weatherImage: UIImageView!
     @IBOutlet weak var tembLbl: UILabel!
@@ -23,16 +22,20 @@ class HomeVC: UIViewController {
     var city = "Andijon"
     var hours: [Hour] = []
     var days: [ForecastDay] = []
+    let locationManager = CLLocationManager()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        locationManager.delegate = self
+        locationManager.requestWhenInUseAuthorization()
+        locationManager.requestLocation()
         getCurrentweather(for: city)
         getForecast(for: city, days: 3)
         setupDayCollectionView()
         setupNextDayCollectionView()
         setupNav()
-
+        textField.delegate = self
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -44,15 +47,11 @@ class HomeVC: UIViewController {
     }
 
     func setupNav() {
-        let location = UIBarButtonItem(image: UIImage(systemName: "location.circle"), style: .done, target: self, action: #selector(location))
-
-        navigationItem.leftBarButtonItem = location
-        location.tintColor = UIColor.black
-        navigationItem.hidesBackButton = true
+        navigationController?.isNavigationBarHidden = true
     }
     
-    @objc func location() {
-//        locationManager.requestLocation()
+    @IBAction func locationButton(_ sender: UIButton) {
+        locationManager.requestLocation()
     }
     
     func setupDayCollectionView() {
@@ -225,26 +224,39 @@ extension HomeVC: UICollectionViewDelegate, UICollectionViewDataSource, UICollec
             
         }
     }
+}
+extension HomeVC: CLLocationManagerDelegate {
     
+    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        if let location = locations.last {
+            locationManager.stopUpdatingLocation()
+            let lat = location.coordinate.latitude
+            let lon = location.coordinate.longitude
+           // weatherManager.fetchWeather(latitude: lat, longitute: lon)
+        }
+    }
+    
+    func locationManager(_ manager: CLLocationManager, didFailWithError error: any Error) {
+        print(error)
+    }
 }
 
-
-//extension HomeVC: CLLocationManagerDelegate {
-//    
-//    @objc func location() {
-//        locationManager.requestLocation()
-//    }
-//    
-//    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-//        if let location = locations.last {
-//            locationManager.stopUpdatingLocation()
-//            let lat = location.coordinate.latitude
-//            let long = location.coordinate.longitude
-//            weatherService.fetchWeather(latitude: lat, longitude: long)
-//        }
-//    }
-//    
-//    func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
-//        print(error)
-//    }
-//}
+extension HomeVC: UITextFieldDelegate {
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.endEditing(true)
+    }
+    
+    func textFieldShouldEndEditing(_ textField: UITextField) -> Bool {
+        if textField.text != "" {
+            return true
+        } else {
+            textField.placeholder = "return city name"
+            return false
+        }
+    }
+    
+    func textFieldDidEndEditing(_ textField: UITextField, reason: UITextField.DidEndEditingReason) {
+        
+    }
+}
